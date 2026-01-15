@@ -52,7 +52,7 @@ public static class Arrays
 
         /*
         1. Create a new List<int> element called "displaced" from a range of items of "data". This range starts at index 0 
-            and retrieves a number of items equal to the total amount of items minus the specified "amount" argument.
+            and retrieves a number of items equal to the total amount of items minus the specified "amount" value.
         2. Remove the same range of items from the "data" list after retrieving their values.
         3. Append the "displaced" array to the end of the modified "data" list.
         */
