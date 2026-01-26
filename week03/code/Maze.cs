@@ -32,6 +32,23 @@ public class Maze
     /// </summary>
     public void MoveLeft()
     {
+        /*
+        
+        
+        I printed GetStatus() each time a move is done to better visualize the position of the user each time they do a move.
+        
+        
+        */
+        bool[] surroundings = _mazeMap[(_currX, _currY)];
+        if (surroundings[0] == true)
+        {
+            _currX--;
+            Console.WriteLine(GetStatus());
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
         // FILL IN CODE
     }
 
@@ -41,6 +58,16 @@ public class Maze
     /// </summary>
     public void MoveRight()
     {
+        bool[] surroundings = _mazeMap[(_currX, _currY)];
+        if (surroundings[1] == true)
+        {
+            _currX++;
+            Console.WriteLine(GetStatus());
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
         // FILL IN CODE
     }
 
@@ -50,6 +77,16 @@ public class Maze
     /// </summary>
     public void MoveUp()
     {
+        bool[] surroundings = _mazeMap[(_currX, _currY)];
+        if (surroundings[2] == true)
+        {
+            _currY--;
+            Console.WriteLine(GetStatus());
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
         // FILL IN CODE
     }
 
@@ -59,6 +96,16 @@ public class Maze
     /// </summary>
     public void MoveDown()
     {
+        bool[] surroundings = _mazeMap[(_currX, _currY)];
+        if (surroundings[3] == true)
+        {
+            _currY++;
+            Console.WriteLine(GetStatus());
+        }
+        else
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
         // FILL IN CODE
     }
 
