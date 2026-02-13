@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Security.AccessControl;
 
 public class BinarySearchTree : IEnumerable<int>
 {
@@ -80,6 +81,12 @@ public class BinarySearchTree : IEnumerable<int>
 
     private void TraverseBackward(Node? node, List<int> values)
     {
+        if (node is not null)
+        {
+            TraverseBackward(node.Right, values);
+            values.Add(node.Data);
+            TraverseBackward(node.Left, values);
+        }
         // TODO Problem 3
     }
 
@@ -88,9 +95,13 @@ public class BinarySearchTree : IEnumerable<int>
     /// </summary>
     public int GetHeight()
     {
+        int height = 0;
         if (_root is null)
-            return 0;
-        return _root.GetHeight();
+            return height;
+
+        height = _root.GetHeight();
+        
+        return height;
     }
 
     public override string ToString()
@@ -99,8 +110,10 @@ public class BinarySearchTree : IEnumerable<int>
     }
 }
 
-public static class IntArrayExtensionMethods {
-    public static string AsString(this IEnumerable array) {
+public static class IntArrayExtensionMethods
+{
+    public static string AsString(this IEnumerable array)
+    {
         return "<IEnumerable>{" + string.Join(", ", array.Cast<int>()) + "}";
     }
 }

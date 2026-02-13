@@ -1,3 +1,5 @@
+using System.Threading.Channels;
+
 public class Node
 {
     public int Data { get; set; }
@@ -21,7 +23,7 @@ public class Node
             else
                 Left.Insert(value);
         }
-        else
+        else if (value > Data)
         {
             // Insert to the right
             if (Right is null)
@@ -34,12 +36,45 @@ public class Node
     public bool Contains(int value)
     {
         // TODO Start Problem 2
-        return false;
+        bool result = false;
+        if (Data == value)
+        {
+            result = true;
+        }
+        else if (Data > value && Left != null)
+        {
+            result = Left.Contains(value);
+        }
+        else if (Data < value && Right != null)
+        {
+            result = Right.Contains(value);
+        }
+        return result;
     }
 
     public int GetHeight()
     {
+        int height = 1;
+        int heightLeft = 0;
+        int heightRight = 0;
+        if (Left != null)
+        {
+            heightLeft = Left.GetHeight();
+        }
+        if (Right != null)
+        {
+            heightRight = Right.GetHeight();
+        }
+
+        if (heightLeft >= heightRight)
+        {
+            height += heightLeft;
+        }
+        else
+        {
+            height += heightRight;
+        }
         // TODO Start Problem 4
-        return 0; // Replace this line with the correct return statement(s)
+        return height; // Replace this line with the correct return statement(s)
     }
 }
