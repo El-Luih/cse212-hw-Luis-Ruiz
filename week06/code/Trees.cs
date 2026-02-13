@@ -53,7 +53,7 @@ public static class Trees
         {                                                                                       //       3 3      5 5
             int difference = last - first; //5, 1, 0,                                             2 ,     0 ,      0
             int differenceMiddle = (int)Math.Floor((decimal)difference / 2); //2, 0, 0,           1 ,     0 ,      0
-            int middle = first + differenceMiddle; //2, 0, 1,                                     4 ,     3 ,      5          Excuse my french, but what a pian in the rear.
+            int middle = first + differenceMiddle; //2, 0, 1,                                     4 ,     3 ,      5          Excuse my french, but what a pain in the rear.
             bst.Insert(sortedNumbers[middle]);//2, 0, 1,                                          4 ,     3 ,      5
 
             InsertMiddle(sortedNumbers, first, middle - 1, bst); //0 1, (0 -1), (1, 0),           3 3,  (3 2)    (5 4)
